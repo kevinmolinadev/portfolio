@@ -2,16 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.mask-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.mask-image>div {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  box-shadow: 0 0 150px 60px #5fcaff;
+}
+
+
+.mask-image>img {
+  width: 250px;
+  height: 250px;
+  filter: brightness(1.1);
+  mask-image: url("../assets/svg/mask.svg");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
 }

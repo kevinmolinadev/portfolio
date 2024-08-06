@@ -1,0 +1,49 @@
+.road {
+    --road-color: #0d7cbc;
+    --road-size-circle: 35px;
+    position: relative;
+}
+
+.road__line {
+    color: var(--road-color);
+    width: 273px;
+    height: 232px;
+}
+
+.road__circle {
+    width: var(--road-size-circle);
+    height: var(--road-size-circle);
+    
+    position: absolute;
+    border-radius: 50%;
+    z-index: 5;
+    
+    background-color: var(--road-color);
+    bottom: calc(0px - (var(--road-size-circle) / 3));
+    
+    outline: 2px dashed white;
+    outline-offset: -5px;
+
+    display: flex;
+    align-items: center;
+}
+
+.road__circle__left {
+    left: calc(0px - (var(--road-size-circle) / 3));
+    &>article{
+        left: 100%;
+        margin-left: 2rem;
+    }
+}
+
+.road__circle__right {
+    right: calc(0px - (var(--road-size-circle) / 3));
+    &>article{
+        right: 100%;
+        margin-right: 2rem;
+    }
+}
+
+.reverse {
+    transform: rotateY(180deg);
+}
