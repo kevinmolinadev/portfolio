@@ -1,0 +1,19 @@
+.card__in {
+    animation: fadeIn ease 0.5s both;
+}
+
+.card__out {
+    animation: fadeIn ease 0.5s reverse both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
