@@ -73,3 +73,8 @@
     transform: translateY(calc(95% - 120px));
   }
 }
+
+/* FOR NAVBAR */
+.item-navbar:hover p{
+  display: inline-block;
+}

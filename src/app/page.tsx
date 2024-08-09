@@ -27,7 +27,7 @@ export default function Home() {
   if (data === null) return <div>Loading...</div>
 
   return (
-    <main className="flex h-dvh flex-col justify-center">
+    <main className="flex h-dvh flex-col justify-center lg:flex-row-reverse">
       <section className="flex-grow flex flex-col justify-center items-center px-6 gap-8">
         <div className="mask-image">
           <div />
