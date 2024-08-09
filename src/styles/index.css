@@ -4,7 +4,7 @@
 
 
 :root {
-  --translate-y: 270px;
+  --translate-y: 300px;
 }
 
 /* CSS FOR HOME */
@@ -52,7 +52,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, transparent, white 50px);
+    background: linear-gradient(to bottom, transparent, white 40px);
     z-index: 10;
     translate: 0 var(--translate-y);
     animation: reveal linear;
@@ -68,6 +68,6 @@
 
 @keyframes reveal {
   to {
-    transform: translateY(calc(90% - var(--translate-y)));
+    transform: translateY(calc(95% - 120px));
   }
 }

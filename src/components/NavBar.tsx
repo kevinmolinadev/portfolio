@@ -43,7 +43,7 @@ export const NavBar = ({ fixed = true }: Props) => {
             <ul className="p-2 w-8/12 mb-8 bg-curious-blue-400 flex gap-2 rounded-2xl text-white">
                 {
                     items.map(item => (
-                        <Link key={item.path}  href={item.path} className={`bg-curious-blue-400 w-1/3 rounded-lg h-[50px] pb-1.5 pt-2 flex flex-col gap-0.5 items-center justify-center hover:bg-curious-blue-500 transition-colors duration-300 ${item.path === path ? "bg-curious-blue-500" : ""}`}>
+                        <Link key={item.path}  href={item.path} className={`bg-curious-blue-400 w-1/3 h-[55px] rounded-lg flex flex-col gap-0.5 items-center justify-center hover:bg-curious-blue-500 transition-colors duration-300 ${item.path === path ? "bg-curious-blue-500" : ""}`}>
                             <Image width={26} height={26} src={item.icon} alt={item.title} />
                             <p className="text-sm" >{item.title}</p>
                         </Link>
