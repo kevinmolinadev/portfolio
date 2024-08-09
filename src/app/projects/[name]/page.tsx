@@ -1,9 +1,9 @@
-"use client"
-
 import { Api } from "@/api";
 import Markdown from "markdown-to-jsx";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
+
+export const revalidate = 2629800 //Revalidate data each month
 
 interface Props {
     params: {
@@ -11,24 +11,28 @@ interface Props {
     }
 }
 
-export default function Page({ params: { name } }: Props) {
-    const [data, setData] = useState<string | null>(null)
-    const router = useRouter()
 
-    useEffect(() => {
-        Api.getReadme(name).then(response => {
-            setData(response);
-        }).catch(error => {
-            console.error(error)
-            router.replace("/projects");
-        });
-    }, [])
+export const generateStaticParams = async () => {
+    const projects = await Api.getRepositories();
+    return projects.map(({ name }) => { name })
+}
 
-    if (data === null) return <div>Loading...</div>
+export const generateMetadata = (props: Props) => {
+    return {
+        title: `Proyectos | ${props.params.name.replace(/\b\w/g, (firstLetter) => firstLetter.toUpperCase())}`,
+    } as Metadata
+}
 
-    return (
-        <article>
-            <Markdown className="markdown-body p-8" options={{ forceBlock: true }} >{data}</Markdown>
-        </article>
-    );
+export default async function Page({ params: { name } }: Props) {
+    try {
+        const data = await Api.getReadme(name);
+        return (
+            <article>
+                <Markdown className="markdown-body p-8" options={{ forceBlock: true }} >{data}</Markdown>
+            </article>
+        );
+    } catch (error) {
+        console.log(error)
+        return notFound();
+    }
 }
