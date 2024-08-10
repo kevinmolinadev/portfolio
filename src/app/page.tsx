@@ -1,31 +1,9 @@
-"use client"
-
 import { Api } from "@/api";
 import { NavBar } from "@/components/NavBar";
 import Image from "next/image";
-import { User } from "@/interfaces/user.interface";
-import { SessionStorage } from "@/tools/session-storage";
-import { useEffect, useState } from "react";
 
-const KEYWORD = "user";
-
-export default function Home() {
-  const [data, setData] = useState<User | null>(null)
-
-  useEffect(() => {
-    const dataStored = SessionStorage.getItem<User>(KEYWORD);
-    if (dataStored === null) {
-      Api.getUserData().then(response => {
-        SessionStorage.setItem(KEYWORD, response);
-        setData(response);
-      }).catch(error => console.error(error));
-    } else {
-      setData(dataStored);
-    }
-  }, [])
-
-  if (data === null) return <div>Loading...</div>
-
+export default async function Home() {
+  const data = await Api.getUserData();
   return (
     <main className="flex h-dvh flex-col justify-center lg:flex-row-reverse">
       <section className="flex-grow flex flex-col justify-center items-center px-6 gap-8">

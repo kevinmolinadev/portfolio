@@ -2,6 +2,7 @@
 
 import { Api } from "@/api";
 import { Card } from "@/components/Card";
+import Loader from "@/components/Loader";
 import { NavBar } from "@/components/NavBar";
 import { Road } from "@/components/Road";
 import { Repository } from "@/interfaces/repository.interface";
@@ -11,7 +12,6 @@ import { useEffect, useRef, useState } from "react";
 const KEYWORD = "projects";
 
 export default function Page() {
-
     const [projects, setProjects] = useState<Repository[] | null>(null)
     const [maskPositionY, setMaskPositionY] = useState<number | null>(null);
 
@@ -44,7 +44,7 @@ export default function Page() {
         }
     }
 
-    if (projects === null) return <div>Loading...</div>
+    if (projects === null) return <Loader />
 
     return (
         <div className="flow-path">

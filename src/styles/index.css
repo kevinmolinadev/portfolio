@@ -1,4 +1,5 @@
 @import url(./modules/markdown.css);
+@import url(./modules/not-found.css);
 
 @tailwind base;
 @tailwind components;

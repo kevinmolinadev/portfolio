@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "profile",
     images: {
-      url: "/profile.png"
+      url: "/profile.avif"
     }
   }
 };
