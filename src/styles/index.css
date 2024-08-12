@@ -71,11 +71,11 @@
 
 @keyframes reveal {
   to {
-    transform: translateY(calc(95% - 120px));
+    translate: 0 calc(100% - calc(var(--translate-y) / 2));
   }
 }
 
 /* FOR NAVBAR */
-.item-navbar:hover p{
+.item-navbar:hover p {
   display: inline-block;
 }

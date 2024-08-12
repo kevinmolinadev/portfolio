@@ -20,7 +20,8 @@ export const Api = {
     },
     getRepositories: async (): Promise<Repository[]> => {
         const repositories: Repository[] = await fetch(`${API_HOST}/${USER}/repos`).then(res => res.json())
-        return repositories.filter(item => item.topics.includes(`${KEYWORD}`));
+        const repositoriesFilter = repositories.filter(item => item.topics.includes(`${KEYWORD}`));
+        return repositoriesFilter.sort((first, second) => Date.parse(second.created_at) - Date.parse(first.created_at));
     },
     getReadme: async (repository: string): Promise<string> => {
         return fetch(`${API_HOST}/${REPOS}/${repository}/readme`)
