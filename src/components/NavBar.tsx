@@ -8,6 +8,8 @@ import Home from "@/assets/svg/home.svg";
 import Projects from "@/assets/svg/projects.svg";
 import Curriculum from "@/assets/svg/file.svg";
 
+const URL_CV = process.env.NEXT_PUBLIC_URL_CV;
+
 interface ItemSection {
     path: string,
     title: string,
@@ -26,7 +28,7 @@ const items: ItemSection[] = [
         icon: Projects
     },
     {
-        path: "/curriculum",
+        path: URL_CV!,
         title: "Cv",
         icon: Curriculum
     }

@@ -1,3 +1,5 @@
+import { Icon } from "./icon.interface";
+
 export interface User {
     user: Information;
     socialAccounts: SocialAccount[];
@@ -21,4 +23,5 @@ interface Information {
 interface SocialAccount {
     provider: string;
     url: string;
+    icon: string;
 }

@@ -3,6 +3,7 @@ import { fira } from "@/fonts";
 import "@/styles/index.css";
 
 export const metadata: Metadata = {
+  icons: "/icon.png",
   title: "Kevin Molina Lazarte",
   description: "Soy un desarrollador de software apasionado por la tecnología, especializado en la creación de soluciones innovadoras y eficientes.",
   robots: {
